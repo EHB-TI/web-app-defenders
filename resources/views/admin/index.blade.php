@@ -3,6 +3,7 @@
         <div class="py-16 border-b border-gray-200">
             <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">Admin Page</h1> </div>
     </div>
+    <br/>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

@@ -37,6 +37,9 @@ Auth::routes(['verify' => true]);
 
 //Route::get('/', [PagesController::class, 'index'])->name('index');
 
+Route::post('/adminpage/promoteadmin', [adminController::class, 'update'])->name('admin.promoteuser')->middleware('auth');
+
+
 Route::get('/blog/workspace', [PostController::class, 'workspace'])->name('posts.workspace')->middleware('auth');
 
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index')->middleware('auth','verified');
@@ -96,7 +99,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Admin Routes
 
 Route::put('/adminpage', [adminController::class, 'update'])->name('admin.promoteview')->middleware('auth');
-//Route::put('/adminpage/promoteadmin', [adminController::class, 'update'])->name('admin.promoteview')->middleware('auth');
 Route::get('/adminpage', [adminController::class, 'index'])->name('admin.index')->middleware('auth');
 Route::get('/adminpage/promoteadmin/{userid}', [adminController::class, 'promoteview'])->name('promoteviewuser')->middleware('auth');
 
