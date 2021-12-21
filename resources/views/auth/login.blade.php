@@ -2,9 +2,22 @@
 
 @section('content')
 
+@if (session()->has('info')) 
+    <div class="w-4/5 m-auto mt-10 pl-2">
+        <p class="w-3/6 mb-4 text-gray-40 text-center bg-yellow-300 rounded-1xl py-4"> {{session()->get('info')}} </p>
+    </div>
+@endif
+
 <main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
     <div class="flex">
         <div class="w-full">
+
+            <div class="text-center py-16">
+                <span class="uppercase text-4xl font-extrabold text-gray-600"> WELCOME to BLOGAPP</span>
+                <h2 class=" text-2xl font-extrabold text-gray-600">It is a place to Write, Read and Like </h2>
+                <img src="https://raitech.co.tz/assets/img/web.jpg" width="600" alt=""/>
+                <p class=" text-2xl font-extrabold text-gray-600">It is easy and free to post your story on any topic and connect with millions of readers</p>
+            </div>
 
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 

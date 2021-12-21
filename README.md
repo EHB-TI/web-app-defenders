@@ -1,5 +1,6 @@
 ## Bladwijzers
-[Diagrammen](https://github.com/EHB-TI/web-app-defenders/blob/main/Diagrammen/DIAGRAMMEN.md)
+* [Diagrammen](https://github.com/EHB-TI/web-app-defenders/blob/main/Diagrammen/DIAGRAMMEN.md)
+* [Website URL (www.ehbdefendersblog.com)](https://ehbdefendersblog.com)
 
 # Doelstelling
 *Leg kort uit hoe deze webapp omzet zal maken of iets kan vergemakkelijken in het dagdagelijkse leven van zijn gebruikers.*
@@ -113,6 +114,7 @@ Een Admin user kan alle posten bijwerken of verwijderen.
   
 | Naam | Bedreiging | Actie | Component |
 | :-----: | :-: | :-: | :-: |
+| Encryptie naar MySql DB | Ondershepping van informatie tussen App en DB (MITM attack) | Communucatie naar de DB zal geencrypteerd worden aan de hand van Certificate | Data Stream en Database. 
 |Cryptographic Failures | Het niet gebruiken van Cryptografie voor gevoelige data.| Gevoelige data zal geencrypteerd & gehashed worden. | Wachtwoorden |
 |Broken Access Control | De toegang verlenen voor onbevoegden op de componenten | Beveiliging via Authorisatie & authenticatie. | Beheer van Gebruikersrechten mechanisme |
 |Injection | Bv: Gebruikers Data Is niet gevalideerd.  | Built-in mechanism voor XSS attacks + validaties langs de server-side.| Bestanden (zoals fotos), input velden & formulieren |
@@ -179,8 +181,64 @@ Een Admin user kan alle posten bijwerken of verwijderen.
 |I -> Information disclosure	|= Confidentiality	|--- Informatie verstrekken aan iemand die niet bevoegd is om er toegang toe te krijgen|
 |D -> Denial of service		|= Availability		|--- Exhausting resources die nodig zijn om service te verlenen|
 |E -> Elevation of privilege	|= Authorization		|--- Iemand iets laten doen waartoe hij niet bevoegd is|
+    
+### Spoofing
+Oplossing
+* Auth0 als authenticatiesysteem.
+* Inlogpogingen beperken.
+* E-mail wordt geverifieerd bij registratie; De gebruiker ontvangt een mail met een verificatiecode (die verloopt) om de e-mail te bevestigen.
+* Implementatie van een correct wachtwoordbeleid; Minimumlengte voor het wachtwoord. Controleren of wachtwoord is blootgesteld geweest.
+* Opnieuw authenticatie vereisen voor gevoelige features zoals het verwijderen van een account of het wijzigen van het wachtwoord.
+* Identificatie van de client op basis van client en browser data. Een server kan verdachte User-Agents beperken of detecteren om spoofing te voorkomen.
+
+### Tampering
+Oplossing
+* Correcte validatie van user input.
+* Permissies
+
+### Repudiation
+Oplossing
+* Logging: illegale operaties in een applicatie traceerbaar maken.
+ 
+### Information disclosure
+Oplossing
+* Encryptie van data
+* ACLs
+
+### Denial of service
+Oplossing
+* Data Encryptie
+* Permissies
+    
+### Elevation of privilege
   
-# Deployment
-*minimally, this section contains a public URL of the app. A description of how your software is deployed is a bonus. Do you do this manually, or did you manage to automate? Have you taken into account the security of your deployment process?*
+    
+# CI/CD & Deployement 
+    
+## Public URL
+    
+```sh
+ https://www.ehbdefendersblog.com/   
+```
+
+## Deployment Description
+- Every time when a developer pushes a code to the main branch OR there is merge into the MAIN branch from a different branch, our [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build) gets triggered and launches a build + deployement process for the app.
+    
+- First Step is to retrieve our code/app from our [GitHub Repo](https://github.com/EHB-TI/web-app-defenders).
+    
+- Second step is to build and test the App. We can monitor this process in our [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build).
+    
+- If our app is build successfully and there are no errors, the app may be deployed as a container, to our [Container Registry](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.ContainerRegistry/registries/defendersehbRegistry/overview) (full name: defendersehbregistry.azurecr.io).
+    
+- During Build and deployement process, the app gets tagged with the Docker Build ID. So Everytime when there is a deployement, the Build ID increments by 1. 
+    
+- The container with highest Build ID gets automatically pushed to our [Azure App Service](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.Web/sites/ehbdefendersapp/appServices) (where our app is running). Because highest Build ID = Most Recent Container.
+
+ - After the Final Deployement is done, The new container (highest build ID) is ready to serve and accept request after 1-2 mins. (the warm-up and deployement process of the Container).
+   
+- And So on.. The whole process gets again triggered whenever there is a merge or push into the MAIN branch.
+    
+
+    
 # *you may want further sections*
 *especially if the use of your application is not self-evident*

@@ -8,11 +8,12 @@
     </div>
 @endif
 
+
 <div class="background-image grid grid-cols-1 m-auto">
     <div class="flex text-gray-100 pt-10">
         <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block text-center">
-            <h1 class="sm:text-whote text-5xl uppercase font-bold text-shadow-md pb-14">  Do you want to become a developer?  UPDATE 1.0</h1>
-            <a href="/blog" class="text-center bg-gray-50 text-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase"> Read More </a>
+            <h1 class="sm:text-whote text-4xl uppercase font-bold text-shadow-md pb-14">Share your story with the world</h1>
+            <!--<a href="/blog" class="text-center bg-gray-50 text-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase"> Read More </a>-->
         </div>
     </div>
 </div>
@@ -42,9 +43,9 @@
 </div>
 
 <div class="text-center py-16">
-    <span class="uppercase text-s text-gray-400"> Blog </span>
-    <h2 class="tet-2xl pb-6 text-xl"> Recent posts </h2>
-    <p class="m-auto w-4/5 text-gray-500"> Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
+    <!--<span class="uppercase text-s text-gray-400"> Blog </span>-->
+    <h2 class="tet-2xl pb-6 text-xl"> Is a place to Write, Read and Like </h2>
+    <p class="m-auto w-4/5 text-gray-800">It is easy and free to post your story on any topic and connect with millions of readers</p>
 </div>
 
 <div class="sm:grid grid-cols-2 w-4/5 m-auto">
