@@ -67,7 +67,10 @@ class UserPageController extends Controller
     public function delete($id)
     {
         if(Auth::check()){
-            User::destroy($id);
+           $user = User::find($id);
+           $user->likes()->delete();
+           $user->posts()->delete();
+           $user->delete();
             return redirect('/')->with('info', 'Your account has been deleted!');
             Log::channel('abuse')->info("DELETING USER ".auth()->user()->id);
         }

@@ -54,6 +54,12 @@
 
                     @endif
 
+                    @if (Auth::Check() && Auth::User()->isadmin == 1)
+                        <a class="no-underline hover:underline" href="{{route('admin.index')}}"> Admin Page </a>
+                    @else
+                    
+                    @endif
+
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))

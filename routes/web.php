@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InviteController;
 use App\Http\Controllers\EditorController;
+use App\Http\Controllers\adminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,5 +91,16 @@ Route::delete('/blog/{id}/editors', [EditorController::class, 'destroy' ])->name
 //Route::get('/api/getposts', [\App\Http\Controllers\PostController::class, 'getposts'])->name('getposts');
 //Route::get('/api/getposts/{id}', [\App\Http\Controllers\PostController::class, 'getpostsbyid'])->name('getpostsbyid');
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Admin Routes
+
+Route::put('/adminpage', [adminController::class, 'update'])->name('admin.promoteview')->middleware('auth');
+//Route::put('/adminpage/promoteadmin', [adminController::class, 'update'])->name('admin.promoteview')->middleware('auth');
+Route::get('/adminpage', [adminController::class, 'index'])->name('admin.index')->middleware('auth');
+Route::get('/adminpage/promoteadmin/{userid}', [adminController::class, 'promoteview'])->name('promoteviewuser')->middleware('auth');
+
+Route::get('/adminpage/promoteadmin', [adminController::class, 'search'])->name('search.adminusers')->middleware('auth');
+
+
+
