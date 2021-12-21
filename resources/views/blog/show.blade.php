@@ -20,14 +20,14 @@
                 <form action="{{ route('posts.likes', $post->id) }}" method="POST" >
                     @csrf
                     <button style="font-family: system-ui" type="submit"
-                    class="text-white-500 font-bold uppercase px-8 py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Like</button>
+                    class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Like</button>
                 </form>
             @else
                 <form action="{{ route('posts.likes.delete', $post->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button style="font-family: system-ui" type="submit"
-                    class="text-white-500 font-bold uppercase px-8 py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">UnLike</button>
+                    class="h-10 px-5 m-2 text-gray-100 transition-colors duration-150 bg-gray-700 rounded-lg focus:shadow-outline hover:bg-gray-800">UnLike</button>
                 </form>
             @endif
         </div>
@@ -68,7 +68,7 @@
                 </div>
                 <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left pb-2">{{$comment->content}}</p>
                 <small>Posted at: {{$comment->posted_at}}</small>
-                @if($comment->author == Auth::user())
+                @if($comment->author == Auth::user() && Auth::user()->isadmin == 1)
                     <form method="POST" action="/comments/{{$comment->id}}">
                         @csrf
                         @method('delete')
