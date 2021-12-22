@@ -13,7 +13,7 @@ class adminController extends Controller
         $isadmin = Auth::user()->isadmin;
         $users = User::all();
 
-        If($isadmin == 0){
+        If($isadmin == 1){
             return view('admin.index', compact('users'));
         }
         else {
@@ -23,32 +23,33 @@ class adminController extends Controller
 
     public function promoteview($userid){
 
-        if (Auth::user()->isadmin == 0){
+        if (Auth::user()->isadmin == 1){
             $user = \App\Models\User::findOrFail($userid);
             return view('admin.promoteadmin',compact('user'));
         }else
         {
             return back();
-        } 
+        }
     }
 
 
     public function update(Request $request){
-        
-        $users = \App\Models\User::all();       
-        $nonadminuser = \App\Models\User::findOrFail($request->id);
-        dd($nonadminuser);
 
-       /* $validatedData = $request->validate([
+
+        $nonadminuser = \App\Models\User::findOrFail($request->id);
+
+        $validatedData = $request->validate([
             'isadmin' => 'required|numeric'
         ]);
-        
+
         $nonadminuser->isadmin = $request->isadmin;
         $nonadminuser->save();
 
-        return redirect('adminpage.index',compact('users')); */
+        $users = \App\Models\User::all();
+
+        return view('admin.index',compact('users'));
     }
-    
+
      public function search(Request $request){
 
         $searchString = $request->query('searchTerms');
@@ -60,6 +61,6 @@ class adminController extends Controller
         {
             $users = \App\Models\User::all();
             return view('admin.index',compact('users'));
-        } 
-    } 
+        }
+    }
 }
