@@ -2,6 +2,11 @@
 * [Diagrammen](https://github.com/EHB-TI/web-app-defenders/blob/main/Diagrammen/DIAGRAMMEN.md)
 * [Website URL (www.ehbdefendersblog.com)](https://ehbdefendersblog.com)
 
+```sh
+Username: Test@Test.com Pass: Test12123!
+Admin: Test@Soner.com pass: Test12123!  
+```
+
 # Doelstelling
 *Leg kort uit hoe deze webapp omzet zal maken of iets kan vergemakkelijken in het dagdagelijkse leven van zijn gebruikers.*
 
