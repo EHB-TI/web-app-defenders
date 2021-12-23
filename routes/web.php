@@ -104,5 +104,7 @@ Route::get('/adminpage/promoteadmin/{userid}', [adminController::class, 'promote
 
 Route::get('/adminpage/promoteadmin', [adminController::class, 'search'])->name('search.adminusers')->middleware('auth');
 
-
+Route::get('/privacy', function () {
+    return view('privacyPolicy');
+})->name('privacy');
 
