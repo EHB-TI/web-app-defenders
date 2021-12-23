@@ -27,11 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-       
-       /* If(env('APP_ENV') !== 'local') {
-            $this->app['request']->server->set('HTTPS', true);
-        } 
-        Schema::defaultStringLength(191); */
+       //
     }
 
     /**
@@ -41,10 +37,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       /* If(env('APP_ENV') !== 'local') {
+        If(env('APP_ENV') !== 'local') {
             $this->app['request']->server->set('HTTPS', true);
         } 
-        Schema::defaultStringLength(191); */
-        
+        Schema::defaultStringLength(191); 
+
     }
 }

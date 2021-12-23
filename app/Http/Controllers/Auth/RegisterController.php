@@ -54,7 +54,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'confirmed', Password::min(8)->mixedCase()->uncompromised(8)], // Uncomprimized uses HIBP DB to check the PW.
+            'password' => ['required', 'string', 'confirmed', Password::min(8)->numbers()->mixedCase()->letters()->uncompromised()], // Uncomprimized uses HIBP DB to check the PW.
         ]);
     }
 
