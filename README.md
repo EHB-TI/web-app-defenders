@@ -33,7 +33,7 @@ Als deze acties in een veilige wijze kunnen toegepast worden, waar alle rechten 
 ## SING UP:
 - [ ] Een user geeft een e-mail adres in en een wachtwoord.
 - [ ] Een wachtwoord kan bestaan uit de <printable> ASCII Karakters.
-- [ ] Een wachtwoord moet minstens 7 Karakters lang zijn.
+- [ ] Een wachtwoord moet minstens 8 Karakters lang zijn.
 - [ ] Een user moet een bestaande e-mail adres ingeven.
 - [ ] Een Wachtwoord kan worden gekopieerd en geplakt.
 
@@ -219,6 +219,10 @@ Oplossing
     
 ```sh
  https://www.ehbdefendersblog.com/   
+```
+```sh
+Username: Test@Test.com Pass: Test12123!
+Admin: Test@Soner.com pass: Test12123!  
 ```
 
 ## Deployment Description
