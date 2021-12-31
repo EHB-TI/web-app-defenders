@@ -98,11 +98,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Admin Routes
 
+Route::delete('/adminpage/{userid}', [adminController::class, 'destroy'])->middleware('auth')->name('destroy.user.admin');
 Route::put('/adminpage', [adminController::class, 'update'])->name('admin.promoteview')->middleware('auth');
 Route::get('/adminpage', [adminController::class, 'index'])->name('admin.index')->middleware('auth');
 Route::get('/adminpage/promoteadmin/{userid}', [adminController::class, 'promoteview'])->name('promoteviewuser')->middleware('auth');
 
 Route::get('/adminpage/promoteadmin', [adminController::class, 'search'])->name('search.adminusers')->middleware('auth');
+
+
+Route::get('/.htaccess', [adminController::class, 'blockhtaccess'])->name('block.htaccess')->middleware('auth');
 
 Route::get('/privacy', function () {
     return view('privacyPolicy');

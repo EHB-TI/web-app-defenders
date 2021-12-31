@@ -5,9 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class adminController extends Controller
 {
+
+    public function destroy($id){
+
+        if(Auth::check()){
+            $user = User::find($id);
+            $user->likes()->delete();
+            $user->posts()->delete();
+            $user->delete();
+            return redirect('/')->with('info', 'account has been deleted!');
+         }
+         else{
+            return redirect('/')-with('info', 'Please Login');
+         }
+    }
+
     public function index()
     {
         $isadmin = Auth::user()->isadmin;
@@ -52,7 +68,8 @@ class adminController extends Controller
 
      public function search(Request $request){
 
-        $searchString = $request->query('searchTerms');
+        //$searchString = $request->query('searchTerms');
+        $searchString = $request->searchTerms;
         if($searchString){
            $users = \App\Models\User::where('name','LIKE','%'.$searchString.'%')->get();
            return view('admin.index',compact('users'));
@@ -63,4 +80,11 @@ class adminController extends Controller
             return view('admin.index',compact('users'));
         }
     }
+
+    public function blockhtaccess()
+    {
+        return redirect('/');
+    }
+
+ 
 }
