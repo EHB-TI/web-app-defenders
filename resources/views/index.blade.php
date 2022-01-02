@@ -42,10 +42,37 @@
     <span class="font-extrabold block text-3xl py-2"> Network </span>
 </div>
 
-<div class="text-center py-16">
-    <!--<span class="uppercase text-s text-gray-400"> Blog </span>-->
-    <h2 class="tet-2xl pb-6 text-xl"> Is a place to Write, Read and Like </h2>
-    <p class="m-auto w-4/5 text-gray-800">It is easy and free to post your story on any topic and connect with millions of readers</p>
+<div class="py-12">
+    <p class=" text-2xl text-center font-extrabold text-gray-600">Last 3 months Posts</p>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @foreach ($posts as $post)
+                <div class="grid grid-cols-1 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 gap-4 mt-8 mb-8">
+                    <div class="col-span-2 sm:col-span-1 xl:col-span-1">
+                       @if ($post->image_path)
+                          <img src="{{asset('images/' . $post->image_path) }}" width="600" alt="post_image"/>
+                        @else
+                            <img src="{{asset('images/df.jpg')}}" width="600" alt="post_default_image"/>
+                        @endif
+                    </div>
+                    
+                    <div class="col-span-2 sm:col-span-4 xl:col-span-4">
+                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{$post->title}}</h2>
+                        <p class="leading-relaxed">{{Helper::ellipse(strip_tags(html_entity_decode($post->content)))}}</p>
+                        <span class="font-semibold title-font text-gray-700">{{$post->likes->count()}} {{Str::plural('like', $post->likes->count()) }}</span>
+                        <span class="mt-1 text-gray-500 text-sm">Last Edited On {{$post->updated_at}}</span>
+                        <a href="{{ URL::temporarySignedRoute('posts.show', now()->addMinutes(30), ['id' => $post->id]) }}" class="text-blue-500 inline-flex items-center mt-4">Keep Reading
+                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        <span>
+           
+        </span>
+    </div>
 </div>
 
 <div class="sm:grid grid-cols-2 w-4/5 m-auto">

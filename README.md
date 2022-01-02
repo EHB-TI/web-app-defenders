@@ -4,7 +4,7 @@
 
 ```sh
 Username: Test@Test.com Pass: Test12123!
-Admin: Test@Soner.com pass: Test12123!  
+Admin: Admin@Admin.com pass: Admin123! 
 ```
 
 # Doelstelling
@@ -28,87 +28,87 @@ Als deze acties in een veilige wijze kunnen toegepast worden, waar alle rechten 
 # [BEVEILIGING]
 
 ## HTTPS:
-- [ ] Gebruik van HTTPS
-- [ ] Er zal niet kunnen gesurfd worden naar de URL door te kopieren.
-- [ ] HSTS preload list.
-- [ ] Elk respons moet een Strict-Transport-Security header bevatten
-- [ ] DNS CAA encryt toepassing.
-- [ ] Domain krijgt een A op de website van 'ssllabs.com/ssltest'.
+- [X] Gebruik van HTTPS
+- [X] Er zal niet kunnen gesurfd worden naar de URL door te kopieren.
+- [X] HSTS preload list.
+- [X] Elk respons moet een Strict-Transport-Security header bevatten
+- [X] DNS CAA encryt toepassing.
+- [X] Domain krijgt een A op de website van 'ssllabs.com/ssltest'.
 
 ## SING UP:
-- [ ] Een user geeft een e-mail adres in en een wachtwoord.
-- [ ] Een wachtwoord kan bestaan uit de <printable> ASCII Karakters.
-- [ ] Een wachtwoord moet minstens 8 Karakters lang zijn.
-- [ ] Een user moet een bestaande e-mail adres ingeven.
-- [ ] Een Wachtwoord kan worden gekopieerd en geplakt.
+- [X] Een user geeft een e-mail adres in en een wachtwoord.
+- [X] Een wachtwoord kan bestaan uit de <printable> ASCII Karakters.
+- [X] Een wachtwoord moet minstens 8 Karakters lang zijn.
+- [X] Een user moet een bestaande e-mail adres ingeven.
+- [X] Een Wachtwoord kan worden gekopieerd en geplakt.
 
 ## API:
-- [ ] HIBP api wordt gebruikt voor het weigeren van wachtwoorden die meer dan 300 keer als gebreached gemarkeerd zijn.
+- [X] HIBP api wordt gebruikt voor het weigeren van wachtwoorden die meer dan 300 keer als gebreached gemarkeerd zijn.
 
 ## SIGN IN:
-- [ ] Een user kan pas inloggen als hij zijn e-mail adres heeft bevestigd door te bewijzen dat het zijn e-mail adres is.
-- [ ] Bij het fout invoeren van een wachtwoord moet de user 60seconden wachten.
-- [ ] Als de user ingelogd is kan hij bovenaan rechts zijn profiel foto zien.
-- [ ] Er wordt gevraagd aan de user om de noodzakelijke cookies te accepteren.
+- [X] Een user kan pas inloggen als hij zijn e-mail adres heeft bevestigd door te bewijzen dat het zijn e-mail adres is.
+- [X] Bij het fout invoeren van een wachtwoord moet de user 60seconden wachten.
+- [X] Er wordt gevraagd aan de user om de noodzakelijke cookies te accepteren.
   
 ## Gebruikersrollen:
 Administrator heeft toegang tot
-- [ ] In -en uit te loggen
-- [ ] Beheren van gebruikers en de applicatie
+- [X] In -en uit te loggen
+- [X] Beheren van gebruikers en de applicatie
+- [X] Verwijderen van non-admin users
+- [X] Een user promoten tot admin.
   
 User heeft toegang tot
-- [ ] In -en uit te loggen
-- [ ] Bijwerken van profiel
-- [ ] Wijzigen van wachtwoord
-- [ ] Zoeken naar publieke blog posts
-- [ ] Toevoegen van comments aan publieke blog posts
-- [ ] Toevoegen, wijzigen of verwijderen van eigen blog posts
-- [ ] Publiceren van blog posts
-- [ ] Maken of verwijderen van bloggroep
+- [X] In -en uit te loggen
+- [X] Bijwerken van profiel
+- [X] Wijzigen van wachtwoord
+- [X] Zoeken naar publieke blog posts
+- [X] Toevoegen van comments aan publieke blog posts
+- [X] Toevoegen, wijzigen of verwijderen van eigen blog posts
+- [X] Publiceren van blog posts
+- [X] Maken of verwijderen van bloggroep
  
 User Group Administrator heeft toegang tot
-- [ ] Alle User rechten
-- [ ] Toevoegen of verwijderen van bestaande of niet-bestaande users aan een bloggroep
-- [ ] Toevoegen, wijzigen of verwijderen van blog posts behorende tot de bloggroep waarvan de user lid is
+- [X] Alle User rechten
+- [X] Toevoegen of verwijderen van bestaande of niet-bestaande users aan een bloggroep
+- [X] Toevoegen en wijzigen van blog posts behorende tot de bloggroep waarvan de user lid is
   
 User Group Member heeft toegang tot
-- [ ] Alle User rechten
-- [ ] Wijzigen van blog posts behorende tot de bloggroep waarvan de user lid is
+- [X] Alle User rechten
+- [X] Wijzigen van blog posts behorende tot de bloggroep waarvan de user lid is
   
 Visitor heeft toegang tot
-- [ ] Maken van een user account
-- [ ] Zoeken naar publieke blog posts
-- [ ] Bekijken van publieke blog posts + comments
+- [X] Maken van een user account
+- [X] Zoeken naar publieke blog posts
+- [X] Bekijken van publieke blog posts
 
 ## USER RECHTEN:
-- [ ] Een user kan zijn profiel bekijken.
-- [ ] Een user kan zijn gegevens aanpassen.
-- [ ] Een user kan zijn account verwijderen
-- [ ] Een user kan zijn gegevens exporteren en downloaden in een .CSV file.
-- [ ] Een Admin user heeft Full rechten. Kan een post bijwerken of verwijderen indien nodig ook een post aanmaken.
+- [X] Een user kan zijn profiel bekijken.
+- [X] Een user kan zijn gegevens aanpassen.
+- [X] Een user kan zijn account verwijderen
+- [X] Een user kan zijn gegevens exporteren via E-mail.
+- [X] Een Admin user heeft Full rechten. Kan een post bijwerken of verwijderen indien nodig ook een post aanmaken.
 
 ## PERSOONLIJKE GEGEVENS EN BESCHERMING:
-- [ ] GDPR wordt toegepast aan de website
+- [X] GDPR wordt toegepast aan de website
 - [ ] Website zal conform zijn met de privacy wetgeving.
-- [ ] Een user kan de privacyverklaring altijd raadplegen.
-- [ ] Onderaan op de website op elke pagina zal er de privacyverklaringen staan.
-- [ ] Een user is op de hoogte van het gebruik van noodzakelijke cookies.
-- [ ] Een user kan contact nemen zaols vermeld in de privacyverklaring.
+- [X] Onderaan op de website op elke pagina zal er de privacyverklaringen staan.
+- [X] Een user is op de hoogte van het gebruik van noodzakelijke cookies.
+- [X] Een user kan contact nemen zaols vermeld in de privacyverklaring.
 
 ## BLOG:
-- [ ] Een user kan gewoon zijn eigen posts aanpassen of verwijderen.
-- [ ] Een user kan andere posts Liken & opmerkingen toevoegen.
-Een Admin user kan alle posten bijwerken of verwijderen.
+- [X] Een user kan gewoon zijn eigen posts aanpassen of verwijderen.
+- [X] Een user kan andere posts Liken & opmerkingen toevoegen.
+- [X] Een Admin user kan alle posten bijwerken of verwijderen.
 
 ## Injections : App is beveiligd tegen onderstaande injections. 
-- [ ] CSRF
-- [ ] HTML injection
-- [ ] CSS injection
-- [ ] XSSI
-- [ ] Clickjacking
-- [ ] XSS
-- [ ] SQL injection
-- [ ] Command injection
+- [X] CSRF
+- [X] HTML injection
+- [X] CSS injection
+- [X] XSSI
+- [X] Clickjacking
+- [X] XSS
+- [X] SQL injection
+- [X] Command injection
   
   
 # Threat model
@@ -225,9 +225,7 @@ Oplossing
 ```sh
  https://www.ehbdefendersblog.com/   
 ```
-```sh
-Username: Test@Test.com Pass: Test12123!
-Admin: Test@Soner.com pass: Test12123!  
+```sh 
 ```
 
 ## Deployment Description

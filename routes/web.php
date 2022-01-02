@@ -33,7 +33,7 @@ use App\Http\Controllers\adminController;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
 
 //Route::get('/', [PagesController::class, 'index'])->name('index');
 

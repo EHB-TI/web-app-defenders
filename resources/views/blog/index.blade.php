@@ -44,6 +44,9 @@
                                     <path d="M12 5l7 7-7 7"></path>
                                 </svg>
                             </a>
+                            <a href="{{ URL::temporarySignedRoute('workspace.edit', now()->addMinutes(30), ['id' => $post->id]) }}"
+                                class="text-gray-700 hover:text-gray-900 ml-5 pb-0.5 border-b-2">Edit
+                             </a>
                         </div>
                     </div>
                 @endforeach

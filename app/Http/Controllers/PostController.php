@@ -66,7 +66,7 @@ class PostController extends Controller
         Log::channel('abuse')->info("Showing the Blog PAGE by user ".auth()->user()->id);
         $url = URL::temporarySignedRoute('posts.workspace', now()->addMinutes(30));
         if (! $request->hasValidSignature()) {
-            return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
+            return redirect()->route('index');
         }
         else{
             return view("blog.workspace")->with('posts', $posts->orderBy('updated_at', 'DESC')->get())->with($url);
@@ -84,7 +84,7 @@ class PostController extends Controller
         Log::channel('abuse')->info("create blog page is called by user ". auth()->user()->id);
         if (! $request->hasValidSignature()) {
             //abort(401);
-            return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
+            return redirect()->route('index');
         }
         else{
             return view('blog.create')->with('info', 'Please Login first');
@@ -147,18 +147,15 @@ class PostController extends Controller
         //$post = Post::where('id', $id)->first();
         $post = Post::findOrFail($id);
         $comments = $post->comments()->paginate(5);
-        Log::channel('abuse')->info("SHOWING the Post With ID ".$id. " by user", ['user_id' => auth()->user()->id]);
+        //Log::channel('abuse')->info("SHOWING the Post With ID ".$id. " by user", ['user_id' => auth()->user()->id]);
         $comments->withPath($request->fullUrlWithoutQuery('page'));
         $url = URL::temporarySignedRoute('posts.workspace', now()->addMinutes(30));
-//        if (! $request->hasValidSignature()) {
-//            echo "hello";
-//            //abort(401);
-//           return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
-//        }
-//        else{
-            return view('blog.show', compact('post', 'comments'));
-//        }
 
+            if(Auth::check()){
+            return view('blog.show', compact('post', 'comments'));
+        } else{
+            return redirect('/login');
+        }
     }
 
     /**
@@ -201,7 +198,7 @@ class PostController extends Controller
         $url = URL::temporarySignedRoute('posts.workspace', now()->addMinutes(30));
         if (! $request->hasValidSignature()) {
             //abort(401);
-            return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
+            return redirect()->route('index');
         }
         else{
             return view('blog.edit', compact('post'))->with($url);

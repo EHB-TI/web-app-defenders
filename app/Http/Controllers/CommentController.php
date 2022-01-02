@@ -56,7 +56,7 @@ class CommentController extends Controller
 
         $url = URL::temporarySignedRoute('posts.show', now()->addMinutes(30), ['id' => $post->id]);
         if (!$request->hasValidSignature()) {
-            return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
+            return redirect()->route('index');
         }
         else{
             return redirect($url);

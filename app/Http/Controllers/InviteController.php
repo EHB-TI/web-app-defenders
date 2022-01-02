@@ -107,7 +107,7 @@ class InviteController extends Controller
     public function handle(Request $request){
         if (! $request->hasValidSignature()) {
             //abort(401);
-            return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
+            return redirect()->route('index');
         }
 
         $token = $request->query('token');
