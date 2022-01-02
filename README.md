@@ -2,11 +2,6 @@
 * [Diagrammen](https://github.com/EHB-TI/web-app-defenders/blob/main/Diagrammen/DIAGRAMMEN.md)
 * [Website URL (www.ehbdefendersblog.com)](https://ehbdefendersblog.com)
 
-```sh
-Username: Test@Test.com Pass: Test12123!
-Admin: Admin@Admin.com pass: Admin123! 
-```
-
 # Doelstelling
 *Leg kort uit hoe deze webapp omzet zal maken of iets kan vergemakkelijken in het dagdagelijkse leven van zijn gebruikers.*
 
@@ -225,27 +220,16 @@ Oplossing
 ```sh
  https://www.ehbdefendersblog.com/   
 ```
-```sh 
-```
 
-## Deployment Description
-- Every time when a developer pushes a code to the main branch OR there is merge into the MAIN branch from a different branch, our [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build) gets triggered and launches a build + deployement process for the app.
-    
-- First Step is to retrieve our code/app from our [GitHub Repo](https://github.com/EHB-TI/web-app-defenders).
-    
-- Second step is to build and test the App. We can monitor this process in our [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build).
-    
-- If our app is build successfully and there are no errors, the app may be deployed as a container, to our [Container Registry](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.ContainerRegistry/registries/defendersehbRegistry/overview) (full name: defendersehbregistry.azurecr.io).
-    
-- During Build and deployement process, the app gets tagged with the Docker Build ID. So Everytime when there is a deployement, the Build ID increments by 1. 
-    
-- The container with highest Build ID gets automatically pushed to our [Azure App Service](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.Web/sites/ehbdefendersapp/appServices) (where our app is running). Because highest Build ID = Most Recent Container.
 
- - After the Final Deployement is done, The new container (highest build ID) is ready to serve and accept request after 1-2 mins. (the warm-up and deployement process of the Container).
-   
-- And So on.. The whole process gets again triggered whenever there is a merge or push into the MAIN branch.
+## Beschrijving deployment 
+- Telkens als er een code wordt gepushed naar de main branch of er gebeurt een merge in de main branch onze [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build) zal een build + deployment proces starten.
     
-
+- Eerste stap is de code clonen van de [GitHub Repo](https://github.com/EHB-TI/web-app-defenders).
+Tweede stap is de app builden en testen. We kunnen deze proces volgen op [Azure Pipeline](https://dev.azure.com/defenders-sp/Software%20Security/_build).
+Als de build van de app succesvol verloopt, kan de code als een container worden gedeployd naar onze [Container Registry](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.ContainerRegistry/registries/defendersehbRegistry/overview) (full name: defendersehbregistry.azurecr.io).
     
-# *you may want further sections*
-*especially if the use of your application is not self-evident*
+- Tijdens de build proces wordt de container getagt met de docker build ID. Bij elke deployment proces wordt deze met 1 verhoogd.
+De container met de hoogste build ID wordt automatisch gepushed naar de [Azure App Service](https://portal.azure.com/#@ehb.onmicrosoft.com/resource/subscriptions/a081c48b-ed6f-45e3-9e10-dcab2b4e4ee6/resourceGroups/EHBDEFENDERS_RESOURCE/providers/Microsoft.Web/sites/ehbdefendersapp/appServices) (waar onze app draait). Hoogste build ID = meest recente container.
+    
+- 2 minuten na de finale deployment zal de nieuwe container gereed staan om requests te accepteren. Deze proces wordt opnieuw in gang gezet bij elke merge of een push naar onze MAIN branch.
