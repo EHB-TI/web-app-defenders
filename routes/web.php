@@ -44,11 +44,12 @@ Route::get('/blog/workspace', [PostController::class, 'workspace'])->name('posts
 
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 
+Route::get('/blog/{id}', [PostController::class, 'show' ])->name('posts.show');
+
 Route::get('/blog/create', [PostController::class, 'create'])->name('posts.create.post')->middleware('auth');
 
 Route::post('/blog', [PostController::class, 'store'])->name('posts.store');
 
-Route::get('/blog/{id}', [PostController::class, 'show' ])->name('posts.show');
 
 Route::get('/blog/{id}/edit', [PostController::class, 'edit',])->name('posts.edit.post');
 

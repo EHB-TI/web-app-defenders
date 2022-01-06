@@ -38,11 +38,7 @@
                     <a class="no-underline hover:underline" href="/"> Home </a>
                     <!-- <a class="no-underline hover:underline" href="/blog"> Blog </a> -->
 
-                    @if (Auth::Check())
                     <a class="no-underline hover:underline" href="{{ URL::temporarySignedRoute('posts.index', now()->addMinutes(30)) }}"> Blog </a>
-                    @else
-                    <a disabled class="no-underline hover:underline"  href="{{ route('register') }}"> Blog </a>
-                    @endif
 
                     @if (Auth::Check())
                         <a class="no-underline hover:underline" href="{{ URL::temporarySignedRoute('posts.workspace', now()->addMinutes(30)) }}">Workspace</a>
@@ -57,7 +53,7 @@
                     @if (Auth::Check() && Auth::User()->isadmin == 1)
                         <a class="no-underline hover:underline" href="{{route('admin.index')}}"> Admin Page </a>
                     @else
-                    
+
                     @endif
 
                     @guest
