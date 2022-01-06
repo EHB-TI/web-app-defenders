@@ -27,22 +27,22 @@ use App\Http\Controllers\adminController;
 
 
 
-//Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 //Auth::routes(['verify' => true]);
 
-//Route::get('/', [PagesController::class, 'index'])->name('index');
+Route::get('/', [PagesController::class, 'index'])->name('index');
 
 Route::post('/adminpage/promoteadmin', [adminController::class, 'update'])->name('admin.promoteuser')->middleware('auth');
 
 
 Route::get('/blog/workspace', [PostController::class, 'workspace'])->name('posts.workspace')->middleware('auth');
 
-Route::get('/blog', [PostController::class, 'index'])->name('posts.index')->middleware('auth','verified');
+Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/blog/create', [PostController::class, 'create'])->name('posts.create.post')->middleware('auth');
 

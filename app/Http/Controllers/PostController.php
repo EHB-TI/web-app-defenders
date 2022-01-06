@@ -44,7 +44,7 @@ class PostController extends Controller
 
         $posts->withPath($request->fullUrlWithoutQuery('page'));
 
-        Log::channel('abuse')->info("Showing the Blog PAGE by user ".auth()->user()->id);
+        Log::channel('abuse')->info("Showing the Blog PAGE by user ");
         $url = URL::temporarySignedRoute('posts.workspace', now()->addMinutes(30));
         //if (! $request->hasValidSignature()) {
           //  return redirect()->route('index')->with('info', 'Please use the navigation bar to navigate !');
