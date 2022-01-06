@@ -32,7 +32,7 @@
                                 <img src="{{asset('images/df.jpg')}}" width="600" alt="post_default_image"/>
                             @endif
                         </div>
-                        
+
                         <div class="col-span-2 sm:col-span-4 xl:col-span-4">
                             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{$post->title}}</h2>
                             <p class="leading-relaxed">{{Helper::ellipse(strip_tags(html_entity_decode($post->content)))}}</p>
@@ -44,9 +44,13 @@
                                     <path d="M12 5l7 7-7 7"></path>
                                 </svg>
                             </a>
+                            @if (Auth::Check())
+                                @if($post->hasEditor(Auth::user()->email))
                             <a href="{{ URL::temporarySignedRoute('workspace.edit', now()->addMinutes(30), ['id' => $post->id]) }}"
                                 class="text-gray-700 hover:text-gray-900 ml-5 pb-0.5 border-b-2">Edit
                              </a>
+                                @endif
+                            @endif (Auth::Check())
                         </div>
                     </div>
                 @endforeach
