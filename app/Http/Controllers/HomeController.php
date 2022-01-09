@@ -33,6 +33,10 @@ class HomeController extends Controller
         $posts = Post::all()->whereBetween('created_at',[$dateS, $dateE]);
         Log::channel('abuse')->info("Showing the INDEX PAGE");
 
-        return view('index', compact('posts'));
+        //return view('index', compact('posts'));
+        
+        return response()
+        ->view('index', compact('posts'))
+        ->header('Content-Type', 'text/html');
     }
 }
