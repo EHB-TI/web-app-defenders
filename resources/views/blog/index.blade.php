@@ -45,12 +45,26 @@
                                 </svg>
                             </a>
                             @if (Auth::Check())
-                                @if($post->hasEditor(Auth::user()->email))
+                                @if(Auth::user()->isadmin == 1 || $post->hasEditor(Auth::user()->email))
                             <a href="{{ URL::temporarySignedRoute('workspace.edit', now()->addMinutes(30), ['id' => $post->id]) }}"
                                 class="text-gray-700 hover:text-gray-900 ml-5 pb-0.5 border-b-2">Edit
                              </a>
                                 @endif
                             @endif (Auth::Check())
+                            
+                            @if (Auth::Check())
+                                @if (isset(Auth::user()->id) && $post->isAuthor(Auth::user()) || Auth::user()->isadmin == 1)
+                                    <span class="float-right">
+                                            <form method="POST" action="/blog/{{$post->id}}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="text-red-700 hover:text-red-900 pb-1 border-b-2"
+                                                        type="submit">Delete</button>
+                                            </form>
+                                    </span>
+                                @endif
+                            @endif
+
                         </div>
                     </div>
                 @endforeach

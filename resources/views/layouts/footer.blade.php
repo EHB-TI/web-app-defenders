@@ -16,10 +16,10 @@
             <h3 class="text-l sm:fond-bold text-gray-100"> Find us </h3>
 
             <ul class="py-4 sm:text-s pt-4 text-gray-400">
-                <li class="pb-1"> <a href="/"> What We Do </a> </li>
-                <li class="pb-1"> <a href="/"> Address </a> </li>
-                <li class="pb-1"> <a href="/"> Phone </a> </li>
-                <li class="pb-1"> <a href="/"> Contact </a> </li>
+                <li class="pb-1"> <a href="#"> What We Do </a> </li>
+                <li class="pb-1"> <a href="#"> Address </a> </li>
+                <li class="pb-1"> <a href="#"> Phone </a> </li>
+                <li class="pb-1"> <a href="/privacy"> Contact </a> </li>
             </ul>
             
         </div>
@@ -28,10 +28,10 @@
             <h3 class="text-l sm:fond-bold text-gray-100"> Latest Post </h3>
 
             <ul class="py-4 sm:text-s pt-4 text-gray-400">
-                <li class="pb-1"> <a href="/"> Why we love tech </a> </li>
-                <li class="pb-1"> <a href="/"> Why we love design </a> </li>
-                <li class="pb-1"> <a href="/"> Why to use laravel </a> </li>
-                <li class="pb-1"> <a href="/"> Why PHP </a> </li>
+                <li class="pb-1"> <a href="#"> Why we love tech </a> </li>
+                <li class="pb-1"> <a href="#"> Why we love design </a> </li>
+                <li class="pb-1"> <a href="#"> Why to use laravel </a> </li>
+                <li class="pb-1"> <a href="#"> Why PHP </a> </li>
             </ul>
             
         </div>

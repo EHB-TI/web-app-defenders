@@ -53,11 +53,6 @@
                         </a>
                     </div>
                     <div class="col-span-2 sm:col-span-1 xl:col-span-1">
-                        <span class="float-right">
-                                    <a href="{{ URL::temporarySignedRoute('workspace.edit', now()->addMinutes(30), ['id' => $post->id]) }}"
-                                       class="text-gray-700 hover:text-gray-900 ml-5 pb-0.5 border-b-2">Edit
-                                    </a>
-                                </span>
                         @if (isset(Auth::user()->id) && $post->isAuthor(Auth::user()))
                             <span class="float-right">
                                     <form method="POST" action="/blog/{{$post->id}}">
@@ -68,6 +63,13 @@
                                     </form>
                                 </span>
                         @endif
+                        <span class="float-left">
+                            <a href="{{ URL::temporarySignedRoute('workspace.edit', now()->addMinutes(30), ['id' => $post->id]) }}"
+                                class="text-gray-700 hover:text-gray-900 ml-5 pb-0.5 border-b-2">Edit
+                            </a>
+                        </span>
+
+                        
                     </div>
                     <div class="col-span-2 sm:col-span-1 xl:col-span-1">
                         @if (isset(Auth::user()->id) && $post->isAuthor(Auth::user()))
