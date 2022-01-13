@@ -19,14 +19,6 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-  task: ShellScript@2
-  inputs:
-    scriptPath:
-    args: 'php artisan optimize && php artisan cache:clear' # Optional
-    #disableAutoCwd: false # Optional
-    #cwd: '' # Optional
-    #failOnStandardError: false
-
 stages:
 - stage: Build
   displayName: Build and push stage
@@ -45,3 +37,10 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: ShellScript@2
+      inputs:
+        scriptPath:
+        args: 'php artisan optimize && php artisan cache:clear' # Optional
+        #disableAutoCwd: false # Optional
+        #cwd: '' # Optional
+        #failOnStandardError: false
