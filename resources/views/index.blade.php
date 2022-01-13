@@ -27,7 +27,7 @@
 
     <div class="m-auto sm:auto text-left w-4/5 block py-3 m">
         <h2 class=" text-2xl font-extrabold text-gray-600">Struggling to be a better web developer? </h2>
-        <p class="py-8 text-gray-500 text-5 text-s"> Read our posts</p>
+        <p class="py-8 text-gray-500 text-5 text-s"> Read our last posts</p>
         <a href="/blog" class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl"> Find out more posts </a>
     </div>
 </div>
