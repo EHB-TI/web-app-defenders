@@ -35,7 +35,7 @@
 
 
 <div class="py-12 text-center p-15 bg-stone-300 text-white">
-    <p class=" text-2xl text-center font-extrabold text-gray-600">Last 3 months Posts...</p>
+    <p class=" text-2xl text-center font-extrabold text-gray-600">Last 3 months Posts..</p>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @foreach ($posts as $post)
                 <div class="grid grid-cols-1 sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 gap-4 mt-8 mb-8">
