@@ -10,9 +10,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '05b8fee2-3ca0-41ce-a46d-6c59da2161dd'
+  dockerRegistryServiceConnection: 'a50bfc4d-201b-480b-b166-0972fba58336'
   imageRepository: 'ehbblogapp'
-  containerRegistry: 'defendersehbregistry.Azurecr.io'
+  containerRegistry: 'defendersehbregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
